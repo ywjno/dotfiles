@@ -1,0 +1,12 @@
+[alias]
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+[color]
+    ui = true
+[gui]
+    encoding = utf-8
+[core]
+    autocrlf = true
+    filemode = false

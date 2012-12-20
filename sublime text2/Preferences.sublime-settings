@@ -1,0 +1,23 @@
+{
+	"auto_complete_commit_on_tab": true,
+	"auto_complete_with_fields": true,
+	"caret_style": "phase",
+	"color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night-Bright.tmTheme",
+	"detect_slow_plugins": false,
+	"draw_minimap_border": true,
+	"find_selected_text": true,
+	"font_face": "MigMix 2P",
+	"font_size": 11.0,
+	"highlight_active_indent_guide": true,
+	"highlight_line": true,
+	"highlight_modified_tabs": true,
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
+	"tab_completion": true,
+	"tab_size": 4,
+	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
+	"use_tab_stops": true,
+	"word_wrap": true,
+	"ensure_newline_at_eof_on_save": true
+}
