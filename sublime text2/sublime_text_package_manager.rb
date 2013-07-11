@@ -75,7 +75,11 @@ packages = [
   # 显示代码层级
   {:repo_name => 'SublimeText/IndentGuides'},
   # css浏览器支持
-  {:repo_name => 'wbond/sublime_prefixr'}
+  {:repo_name => 'wbond/sublime_prefixr'},
+  # C/C++/ObjC代码提示
+  {:repo_name => 'quarnster/SublimeClang'},
+  # 代码提示
+  {:repo_name => 'SublimeCodeIntel/SublimeCodeIntel'}
 ]
 
 packages.each do |package|
