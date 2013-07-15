@@ -1,0 +1,15 @@
+[
+{ "keys": ["super+ctrl+m"], "command": "list_rails_models" },
+{ "keys": ["super+ctrl+c"], "command": "list_rails_controllers" },
+{ "keys": ["super+ctrl+v"], "command": "list_rails_views" },
+{ "keys": ["super+ctrl+i"], "command": "list_rails_javascripts" },
+{ "keys": ["super+ctrl+y"], "command": "list_rails_stylesheets" },
+{ "keys": ["alt+/"], "command": "auto_complete" },
+{ "keys": ["alt+/"], "command": "replace_completion_with_auto_complete", "context":
+    [
+        { "key": "last_command", "operator": "equal", "operand": "insert_best_completion" },
+        { "key": "auto_complete_visible", "operator": "equal", "operand": false },
+        { "key": "setting.tab_completion", "operator": "equal", "operand": true }
+    ]
+}
+]
