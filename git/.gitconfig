@@ -3,13 +3,16 @@
     br = branch
     ci = commit
     st = status
+    cl = clone
 [color]
     ui = true
 [gui]
     encoding = utf-8
 [core]
-    autocrlf = true
+    autocrlf = input
     filemode = false
 [i18n]
     commitencoding = utf-8
     logoutputencoding = utf-8
+[rerere]
+    enabled = true
