@@ -1,0 +1,32 @@
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	cl = clone
+[color]
+	ui = true
+[gui]
+	encoding = utf-8
+[core]
+	autocrlf = input
+	filemode = false
+	eol = lf
+	pager = delta
+[i18n]
+	commitencoding = utf-8
+	logoutputencoding = utf-8
+[rerere]
+	enabled = true
+[pull]
+	rebase = true
+[merge]
+	conflictStyle = merge
+[diff]
+	colorMoved = default
+	algorithm = histogram
+[delta]
+	navigate = true
+	light = true
+	line-numbers = true
+	side-by-side = auto
