@@ -1,0 +1,48 @@
+[tools]
+bat = "latest"
+bun = "latest"
+cargo-binstall = "latest"
+"github:rust-cross/cargo-zigbuild" = "latest"
+delta = "latest"
+deno = "latest"
+difftastic = "latest"
+eza = "latest"
+fd = "latest"
+fzf = "latest"
+go = "latest"
+gradle = "latest"
+java = "temurin-25"
+jj = "latest"
+just = "latest"
+lazygit = "latest"
+maven = "latest"
+neovim = "latest"
+node = "latest"
+python = "latest"
+ripgrep = "latest"
+rust = "latest"
+sd = "latest"
+uv = "latest"
+zig = "latest"
+zoxide = "latest"
+
+[tasks."config:zsh"]
+description = "Config zshrc with sheldon and plugins"
+shell = "bash -c"
+run = """
+set -euo pipefail
+
+# 1) sheldon should be provided by mise tools
+if ! command -v sheldon >/dev/null 2>&1; then
+  echo "sheldon is not available in PATH. Run: mise install" >&2
+  exit 1
+fi
+sheldon init --shell zsh
+
+# 2) ensure zshrc snippet exists only once
+ZSHRC="$HOME/.zshrc"
+SHELDON_SNIPPET='eval "$(sheldon source)"'
+if ! grep -qxF "$SHELDON_SNIPPET" "$ZSHRC"; then
+  printf '\n%s\n' "$SHELDON_SNIPPET" >> "$ZSHRC"
+fi
+"""
