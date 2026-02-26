@@ -9,6 +9,7 @@ difftastic = "latest"
 eza = "latest"
 fd = "latest"
 fzf = "latest"
+"aqua:git/git" = "latest"
 go = "latest"
 gradle = "latest"
 java = "temurin-25"
@@ -22,27 +23,41 @@ python = "latest"
 ripgrep = "latest"
 rust = "latest"
 sd = "latest"
+"github:rossmacarthur/sheldon" = "latest"
 uv = "latest"
 zig = "latest"
 zoxide = "latest"
 
 [tasks."config:zsh"]
-description = "Config zshrc with sheldon and plugins"
+description = "Config zshrc with sheldon"
 shell = "bash -c"
 run = """
 set -euo pipefail
 
-# 1) sheldon should be provided by mise tools
-if ! command -v sheldon >/dev/null 2>&1; then
-  echo "sheldon is not available in PATH. Run: mise install" >&2
+if [[ "${SHELL:-}" != */zsh ]]; then
+  echo "config:zsh must be run in a zsh environment (SHELL=${SHELL:-unset})." >&2
   exit 1
 fi
-sheldon init --shell zsh
 
-# 2) ensure zshrc snippet exists only once
+if ! command -v sheldon >/dev/null 2>&1; then
+  echo "sheldon is not available in PATH. Install it first (e.g. via mise install)." >&2
+  exit 1
+fi
+
 ZSHRC="$HOME/.zshrc"
 SHELDON_SNIPPET='eval "$(sheldon source)"'
+
+# Avoid noisy grep errors on a fresh machine.
+[ -e "$ZSHRC" ] || touch "$ZSHRC"
+
 if ! grep -qxF "$SHELDON_SNIPPET" "$ZSHRC"; then
-  printf '\n%s\n' "$SHELDON_SNIPPET" >> "$ZSHRC"
+  # Add a separator newline only when the file already has content.
+  if [ -s "$ZSHRC" ]; then
+    printf '\n' >> "$ZSHRC"
+  fi
+  printf '%s\n' "$SHELDON_SNIPPET" >> "$ZSHRC"
+  echo "Added sheldon snippet to $ZSHRC"
+else
+  echo "sheldon snippet already exists in $ZSHRC"
 fi
 """
